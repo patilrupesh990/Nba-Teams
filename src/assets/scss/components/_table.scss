@@ -1,4 +1,70 @@
 .teams_table_header{
     background-color: $theme-color;
     height: 7vh;
+    width: 100%;
+    margin-left: 0px;
+    .head_row{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .head_col{
+        display: flex;
+        justify-content: center;
+        align-self: end;
+    }
+    .column-text{
+        color:#fff;
+        font-size: large;
+        font-weight: 400;
+    }
+    .data-row{
+        height: 7vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .data-col{
+        height: 95%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-self: end;
+        background-color: #F8FBFD;
+        font-size: larger;
+        font-weight: 700;
+    }
+    .data-column-text{
+        color:#fff;
+        font-size: large;
+        font-weight: 400;
+    }
+    .pagination-container{
+        margin-top: 4vh;
+        display: flex;
+        justify-content: flex-end;
+        
+    }
+    .pagination-box{
+        height: 2em;
+        width: 2em;
+        background-color: $theme-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 15px;
+        cursor: pointer;
+    }
+    .pagination_icon{
+        color: #fff;
+    }
+    .page_number{
+        font-size: 0.8em;
+        color: #fff;
+        text-align: center;
+        margin-top: 18px;
+        font-weight: 500;
+    }
 }
