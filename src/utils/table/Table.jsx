@@ -9,7 +9,7 @@ const [teamsList,setTeamsList] =useState(initialState.teamsList);
 useEffect(() => {
     let data = setFilterTeamList(props.teamsList);
     setTeamsList(data)
-  }, [teamsList]);
+  }, [props.teamsList]);
 
   const setFilterTeamList = (teamList)=>{
     let teamData=[];
