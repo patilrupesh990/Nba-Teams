@@ -13,7 +13,7 @@ useEffect(() => {
 
   const setFilterTeamList = (teamList)=>{
     let teamData=[];
-    teamList.map((team)=>{
+    teamList.forEach((team)=>{
       let teamObj = {}
       teamObj["Team Name"]=team.name
       teamObj["City"]=team.city

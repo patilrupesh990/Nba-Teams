@@ -59,7 +59,7 @@ function Tableheader(props) {
                 {
                     teamsList && getPaginationsCountList().map((page) => {
                         return (
-                            <div className='pagination-box' onClick={()=>handlePageChange(page)}>
+                            <div className={page === pageNumber?'active-pagination-box':'pagination-box'} onClick={()=>handlePageChange(page)}>
                                 <p className="page_number">{page}</p>
                             </div>
                         )

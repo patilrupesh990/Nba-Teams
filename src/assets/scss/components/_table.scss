@@ -55,7 +55,6 @@
         align-items: center;
         margin-left: 15px;
         cursor: pointer;
-        
     }
 
     .pagination_icon{
@@ -67,5 +66,15 @@
         text-align: center;
         margin-top: 18px;
         font-weight: 500;
+    }
+    .active-pagination-box{
+        height: 2em;
+        width: 2em;
+        background-color: #5288c2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 15px;
+        cursor: pointer;
     }
 }
