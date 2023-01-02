@@ -3,6 +3,7 @@ import SearchBar from './searchbar/SearchBar'
 import TeamList from './TeamList/Index'
 import axios from 'axios'
 import debounce from 'lodash.debounce'
+import TeamInfo from './TeamInfo/TeamInfo'
 
 function NbaTeams() {
 
@@ -11,6 +12,30 @@ function NbaTeams() {
   }, []);
 
   const [teamsList,setTeamsList] = useState([]);
+  const [isOpenTeamInfoDrawer,setIsOpenTeamInfoDrawer] = useState(false)
+  const [teamInfo,setTeamInfo] = useState({});
+
+  const handleTeamInfoDrawer = async (selctedTeam)=>{
+    await getTeamInfo(selctedTeam).then((teamInfo)=>{
+      setTeamInfo(teamInfo)
+    })
+    setIsOpenTeamInfoDrawer(true)
+  }
+
+  const getTeamInfo = (team) =>{
+    return new Promise((resolve,reject)=>{
+      axios.get(process.env.GET_GAMES_INFO).then((response)=>{
+        let gamesInfo = response.data.data;
+        let data={}        
+        gamesInfo.forEach((game)=>{
+          if(game.home_team.name === team["Team Name"])
+            data=game;
+          })
+          resolve(data)
+      })
+      .catch((err)=>{reject(err.response)})
+    })
+  }
 
   const handleSearchData=async(searchKey)=>{
     if(searchKey === "")
@@ -22,7 +47,7 @@ function NbaTeams() {
     fn(value)
   },600)
   const getTeamsList=()=>{
-    axios.get('https://www.balldontlie.io/api/v1/teams').then((response)=>setTeamsList(response.data.data))
+    axios.get(process.env.GET_TEAMS_DATA).then((response)=>setTeamsList(response.data.data))
 
   }
 
@@ -32,12 +57,12 @@ function NbaTeams() {
             <p>NBA TEAMS</p>
             <div>
                 <SearchBar debaunceSeach={debaunceSeach} handleSearchData={handleSearchData} />
-                <TeamList teamsList={teamsList}/>
+                <TeamList teamsList={teamsList} handleTeamInfoDrawer={handleTeamInfoDrawer}/>
+                <TeamInfo teamInfo={teamInfo} isOpenTeamInfoDrawer={isOpenTeamInfoDrawer} setIsOpenTeamInfoDrawer={setIsOpenTeamInfoDrawer}/>
             </div>
         </div>
     </>
     
   )
 }
-
 export default NbaTeams

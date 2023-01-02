@@ -1,0 +1,35 @@
+.team_info_container{
+    width: 30vw;
+    .team_info_header{
+        background-color: $team-info-header-background;
+        padding: 20px;
+        height: 6vh;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .name_heading{
+        font-size: x-large;
+        font-weight: 700;
+        margin-top: -15px;
+    }
+    .close_team_info_icon{
+        margin-top: -15px;
+        cursor: pointer;
+    }
+    .team_info_field{
+        display: flex;
+        margin-left: 18px;
+    }
+    .team_info_field_lable{
+        width: 50%;
+    }
+    .team_info_top{
+        font-size: large;
+    }
+    .team_info_summary{
+        font-weight: bold;
+        font-size: larger;
+        margin-bottom: 15px;
+    }
+}
