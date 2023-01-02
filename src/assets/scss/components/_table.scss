@@ -2,7 +2,7 @@
     background-color: $theme-color;
     height: 7vh;
     width: 100%;
-    
+
     .head_row{
         height: 100%;
         display: flex;
@@ -75,6 +75,12 @@
         justify-content: center;
         align-items: center;
         margin-left: 15px;
+        cursor: pointer;
+    }
+    .header_sorting{
+        color: #fff;
+        margin-left: 5px;
+        margin-top: -15px;
         cursor: pointer;
     }
 }

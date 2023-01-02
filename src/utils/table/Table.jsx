@@ -13,6 +13,7 @@ const [teamsList,setTeamsList] =useState(initialState.teamsList);
 const [pageNumber, setPageNumber] = useState(1);
 const [dataPerPage, setDataPerPage] = useState(7);
 const handleTeamInfoDrawer=props.handleTeamInfoDrawer;
+const {assendingOrder,setAssendingOrder,handleSortCities} = props;
 
 useEffect(() => {
     let data = setFilterTeamList(props.teamsList);
@@ -47,7 +48,7 @@ useEffect(() => {
   return (
     <>
         <Container className="teams_table_container"  style={{ marginLeft: '0px' }}>
-            <Tableheader  teamsList={teamsList}/>
+            <Tableheader  teamsList={teamsList} assendingOrder={assendingOrder} setAssendingOrder={setAssendingOrder} handleSortCities={handleSortCities}/>
             <TableContent getPageData={getPageData}  pageNumber={pageNumber} columns={columns} handleTeamInfoDrawer={handleTeamInfoDrawer}/>
             <Pagination teamsList={teamsList} pageNumber={pageNumber} setPageNumber={setPageNumber} dataPerPage={dataPerPage} setDataPerPage={setDataPerPage}/>
         </Container>
